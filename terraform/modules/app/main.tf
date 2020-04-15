@@ -27,17 +27,17 @@ resource "google_compute_instance" "app" {
     private_key = file(var.private_key_path)
   }
 
-  provisioner "file" {
-    source      = "../modules/files/puma.service"
-    destination = "/tmp/puma.service"
-  }
+  # provisioner "file" {
+  #   source      = "../modules/files/puma.service"
+  #   destination = "/tmp/puma.service"
+  # }
 
-  provisioner "remote-exec" {
-    inline = ["sed -i s/db_external_ip/${var.db_internal_ip}/ /tmp/puma.service"]
-  }
-  provisioner "remote-exec" {
-    script = "../modules/files/deploy.sh"
-  }
+  # provisioner "remote-exec" {
+  #   inline = ["sed -i s/db_external_ip/${var.db_internal_ip}/ /tmp/puma.service"]
+  # }
+  # provisioner "remote-exec" {
+  #   script = "../modules/files/deploy.sh"
+  # }
 
 }
 

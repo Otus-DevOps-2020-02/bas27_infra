@@ -25,9 +25,9 @@ resource "google_compute_instance" "db" {
     # путь до приватного ключа
     private_key = file(var.private_key_path)
   }
-  provisioner "remote-exec" {
-    script = "../modules/files/change_bind_mongo.sh"
-  }
+  # provisioner "remote-exec" {
+  #   script = "../modules/files/change_bind_mongo.sh"
+  # }
 }
 
 # Правило firewall
