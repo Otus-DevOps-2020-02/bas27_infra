@@ -1,0 +1,15 @@
+- name: Configure Rubi
+  hosts: all
+  become: true
+
+  tasks:
+    - name: Run the equivalent of "apt-get update" as a separate step
+      apt:
+        update_cache: yes
+
+    - name: Install Rubi package
+      apt:
+        pkg:
+        - ruby-full
+        - ruby-bundler
+        - build-essential
