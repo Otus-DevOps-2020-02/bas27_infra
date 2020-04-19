@@ -2,7 +2,7 @@
   hosts: app
   become: true
   vars:
-    db_host: 10.132.15.221 # <-- подставьте сюда ваш IP
+    db_host: 10.132.0.9 # <-- подставьте сюда ваш IP
 
   tasks:
     - name: Add unit file for Puma

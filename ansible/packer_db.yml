@@ -1,0 +1,22 @@
+- name: Install MongoDB
+  hosts: all
+  become: true # <-- Выполнить задание от root
+  tasks:
+    - name: Add Mongo packages repo
+      apt_key:
+        keyserver: keyserver.ubuntu.com
+        id: 7F0CEB10
+        state: present
+    - name: add repo mongo
+      apt_repository:
+        repo: deb [ arch=amd64,arm64 ] http://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.2 multiverse
+        state: present
+    - name: install packages
+      apt:
+        pkg: mongodb-org
+        state: present
+        allow_unauthenticated: yes
+    - name: enable mongo
+      systemd:
+        name: mongod
+        enabled: yes
