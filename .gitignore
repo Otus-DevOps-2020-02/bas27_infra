@@ -16,5 +16,6 @@ vault.key
 .molecule
 .cache
 .pytest_cache
-Pipfile Pipfile.lock
+ansible/Pipfile
+ansible/Pipfile.lock
 ansible/otus/*
