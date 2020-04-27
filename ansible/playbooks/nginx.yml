@@ -1,8 +1,9 @@
----
-- name: Configure application
-  hosts: all
+- name: Configure nginx
+  hosts: app
   become: true
-  vars:
+
+  roles:
+  - role: jdauphant.nginx
     nginx_sites:
       default:
       - listen 80
@@ -10,6 +11,3 @@
       - location / {
             proxy_pass http://127.0.0.1:9292;
         }
-  roles:
-    - app
-    - jdauphant.nginx
